@@ -1,0 +1,24 @@
+load("@build_bazel_rules_typescript//:defs.bzl", "ts_library")
+load("@build_bazel_rules_nodejs//:defs.bzl", "npm_package")
+
+load("@angular//:index.bzl", "ng_module", "ng_package")
+
+package(default_visibility = ["//visibility:public"])
+
+ng_module(
+    name = "lib2",
+    srcs = glob([
+        "*.ts",
+    ]),
+    # we have to use ng_module to access this module from other targets with this module name
+    module_name = "@repo/lib2",
+)
+
+ng_package(
+    name = "npm_package",
+    srcs = [":package.json"],
+    entry_point = "index.js",
+    deps = [
+        ":lib2"
+    ],
+)

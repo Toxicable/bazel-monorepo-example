@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@angular/bazel": "^6.0.3",
+    "@angular/common": "^6.0.3",
+    "@angular/compiler": "^6.0.3",
+    "@angular/compiler-cli": "^6.0.3",
+    "@angular/core": "^6.0.3",
+    "angular-oauth2-oidc": "^4.0.2",
+    "rxjs": "^6.2.0",
+    "tsickle": "^0.29.0",
+    "typescript": "2.7.2"
+  }
+}

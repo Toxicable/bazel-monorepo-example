@@ -1,0 +1,47 @@
+
+{
+    "compilerOptions": {
+      "strict": true,
+      "target": "es5",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "declaration": true,
+      "noImplicitReturns": true,
+      "skipLibCheck": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "removeComments": false,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "sourceMap": true,
+      "typeRoots": [
+        "node_modules/@types"
+      ],
+      "types": ["tslib", "jasmine", "node"],
+      "lib": [
+        "dom",
+        "es6",
+        "es2015"
+      ],
+      "noStrictGenericChecks": true,
+      "baseUrl": "./",
+      "rootDir": "./",
+      "paths": {
+        "@repo/*": ["./libs/*"]
+      }
+    },
+    "exclude": [
+      "bazel-out",
+      "dist",
+      "node_modules",
+      "**/*/node_modules"
+    ],
+    "compileOnSave": false,
+    "buildOnSave": false,
+    "atom": {
+      "rewriteTsconfig": false
+    },
+    "bazelOptions": {
+      "suppressTsconfigOverrideWarnings": true
+    }
+  }
