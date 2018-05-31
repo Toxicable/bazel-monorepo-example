@@ -9,6 +9,5 @@ import {name} from '@repo/lib1';
 export class AppComponent {
   title = name;
   constructor() {
-    console.log('nope!')
   }
 }
