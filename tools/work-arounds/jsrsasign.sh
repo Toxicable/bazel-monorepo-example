@@ -1,6 +1,7 @@
 #!/bin/bash
 
 
+# needs to be run before publishing libs
 if [ $1 = "fix" ];
 then
     # jsrsasign does not export the symbol KEYUTIL
