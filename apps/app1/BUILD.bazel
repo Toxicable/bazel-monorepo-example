@@ -17,7 +17,7 @@ ts_library(
 )
 
 nodejs_binary(
-    name = "app1-run",
+    name = "run",
     data = [":lib1"],
     entry_point = "../index.js"
 ) 
