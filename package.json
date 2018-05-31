@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "postinstall": "ngc -p tsconfig.npm.json"
+
+  },
   "dependencies": {
     "@angular/bazel": "^6.0.3",
     "@angular/common": "^6.0.3",

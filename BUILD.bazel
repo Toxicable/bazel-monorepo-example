@@ -26,5 +26,6 @@ node_modules_filegroup(
         "@angular",
         "@types",
         "angular-oauth2-oidc",
+        "jsrsasign"
     ],
 )
