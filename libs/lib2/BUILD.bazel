@@ -12,6 +12,7 @@ ng_module(
     ]),
     # we have to use ng_module to access this module from other targets with this module name
     module_name = "@repo/lib2",
+    deps = ["//libs/lib1"]
 )
 
 ng_package(

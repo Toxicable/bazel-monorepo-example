@@ -1,10 +1,10 @@
-export const name = 'lib2';
-
 import {NgModule} from '@angular/core';
 import {OAuthModule} from 'angular-oauth2-oidc';
-
+import {name} from '@repo/lib1';
 
 @NgModule({
     imports: [OAuthModule.forRoot()]
 })
-export class MyModule {}
+export class MyModule {
+    name = name;
+}
