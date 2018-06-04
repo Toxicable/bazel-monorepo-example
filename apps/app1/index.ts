@@ -6,7 +6,7 @@ import * as express from 'express';
 var app = express();
 
 app.get('*', (req, res) => {
-  res.send('Hello')
+  res.send('Hello!')
 })
 
 const port = 3000;

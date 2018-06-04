@@ -75,6 +75,18 @@ http_archive(
     sha256 = "f70c35a8c779bb92f7521ecb5a1c6604e9c3edd431e50b6376d7497abc8ad3c1",
 )
 
+http_archive(
+    name = "io_bazel_rules_docker",
+    sha256 = "6dede2c65ce86289969b907f343a1382d33c14fbce5e30dd17bb59bb55bb6593",
+    strip_prefix = "rules_docker-0.4.0",
+    urls = ["https://github.com/bazelbuild/rules_docker/archive/v0.4.0.tar.gz"],
+)
+
+# Download base images, etc.
+load("@io_bazel_rules_docker//nodejs:image.bzl", _nodejs_image_repos = "repositories")
+
+_nodejs_image_repos()
+
 load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_toolchains")
 
 go_rules_dependencies()
