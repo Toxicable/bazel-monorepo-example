@@ -7,7 +7,7 @@ package(default_visibility = ["//visibility:public"])
 load("@build_bazel_rules_nodejs//:defs.bzl", "jasmine_node_test")
 
 ts_library(
-    name = "app1",
+    name = "lib",
     srcs = glob([
         "*.ts",
     ]),
@@ -18,8 +18,8 @@ ts_library(
 )
 
 nodejs_binary(
-    name = "run",
-    data = [":app1"],
+    name = "app1",
+    data = [":lib"],
     entry_point = "../index.js"
 ) 
 
@@ -28,7 +28,7 @@ nodejs_image(
     entry_point = "monorepo_example/apps/app1/index.js",
     # This will be put into its own layer.
     node_modules = "//:express_runtime_deps",
-    data = [":run"],
+    data = [":lib"],
 )
 
 # container_push(
