@@ -1,7 +1,8 @@
 {
   "scripts": {
     "postinstall": "./tools/work-arounds/postinstall.sh && ngc -p tsconfig.npm.json",
-    "dev": "concurrently 'ng serve' 'ibazel run apps/app1:run'"
+    "dev": "concurrently 'ng serve' 'ibazel run apps/app1:run'",
+    "upver": "lerna publish --conventional-commits --skip-npm --yes"
   },
   "dependencies": {
     "@angular-devkit/build-angular": "^0.7.0-beta.1",
@@ -20,6 +21,7 @@
     "concurrently": "^3.5.1",
     "express": "^4.16.3",
     "jasmine": "^3.1.0",
+    "lerna": "^2.11.0",
     "rxjs": "^6.2.0",
     "tsickle": "^0.29.0",
     "typescript": "2.7.2",
