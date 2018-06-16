@@ -47,3 +47,6 @@ test --test_output=errors
 # Helps to demonstrate that bazel uses all the cores on the machine.
 build --experimental_ui
 test --experimental_ui
+
+
+build --workspace_status_command tools/print-workspace-status.sh

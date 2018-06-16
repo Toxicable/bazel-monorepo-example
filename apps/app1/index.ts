@@ -1,17 +1,19 @@
 import * as lib1 from '@repo/lib1';
 import * as lib2 from '@repo/lib2';
 
-import * as express from 'express';
+console.log('hi')
 
-var app = express();
+// import * as express from 'express';
 
-app.get('*', (req, res) => {
-  res.send('Hello!')
-})
+// var app = express();
 
-const port = 3000;
+// app.get('*', (req, res) => {
+//   res.send('Hello!')
+// })
 
-app.listen(port, function() {
-  debugger
-  console.log(`listening on ${port}`);
-});
+// const port = 3000;
+
+// app.listen(port, function() {
+//   debugger
+//   console.log(`listening on ${port}`);
+// });

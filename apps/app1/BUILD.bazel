@@ -1,10 +1,10 @@
 load("@build_bazel_rules_typescript//:defs.bzl", "ts_library")
 load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
-load("@io_bazel_rules_docker//nodejs:image.bzl", "nodejs_image")
+load("@build_bazel_rules_nodejs//:defs.bzl", "jasmine_node_test")
+load("//tools:nodejs_docker_image.bzl", "docker_nodejs_image", "docker_push_group")
 
 package(default_visibility = ["//visibility:public"])
 
-load("@build_bazel_rules_nodejs//:defs.bzl", "jasmine_node_test")
 
 ts_library(
     name = "lib",
@@ -20,22 +20,24 @@ ts_library(
 nodejs_binary(
     name = "app1",
     data = [":lib"],
-    entry_point = "../index.js"
+    entry_point = "monorepo_example/apps/app1/index.js"
 ) 
 
-nodejs_image(
-    name = "nodejs_image",
+docker_nodejs_image(
+    name = "image",
     entry_point = "monorepo_example/apps/app1/index.js",
-    # This will be put into its own layer.
     node_modules = "//:express_runtime_deps",
     data = [":lib"],
+    ports = ["80"],
 )
 
-# container_push(
-#    name = "push_foo",
-#    image = ":foo",
-#    format = "Docker",
-#    registry = "gcr.io",
-#    repository = "my-project/my-image",
-#    tag = "dev",
-# )
+# produces 
+#   bazel build apps/app1:push_image.0
+#   bazel build apps/app1:push_image.1
+docker_push_group(
+    name = "push_image",
+    image = ":image",
+    registry = "gcr.io",
+    repository = "my-project/my-image",
+    tags = ["dev", "{BUILD_SCM_VERSION}"],
+)

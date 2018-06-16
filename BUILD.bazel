@@ -75,6 +75,7 @@ node_modules_filegroup(
         "vary",
         "bytes",
         "serve-static",
+        "body-parser",
     ]
 )
 
