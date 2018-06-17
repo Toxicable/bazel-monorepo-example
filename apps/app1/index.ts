@@ -3,6 +3,12 @@ import * as lib2 from '@repo/lib2';
 
 console.log('hi')
 
+setTimeout(() => {
+    var t = 2;
+    debugger;
+    var y = 3;
+})
+
 // import * as express from 'express';
 
 // var app = express();
